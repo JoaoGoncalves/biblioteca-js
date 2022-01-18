@@ -32,22 +32,35 @@ let livros = [
     },
 ];
 
+let search = document.querySelector('input#search');
 let grid = document.querySelector('section.grid');
 
-// mostar os livros todos
+
+// mostar os livros todos no inicio
 mostrarLivros(livros);
 
 // mostar os livros ja lidos
-let livrosJaLidos = livros.filter( livro => livro.alreadyRead === true );
+let livrosJaLidos = livros.filter( livro => livro.alreadyRead === true ); //array com livros ja lidos
+let livrosNaoLidos = livros.filter( livro => livro.alreadyRead === false ); //array para livros nao lidos
+let livrosPesquisa = []; //array para pesqeuisa de livros
 
-//mostrarLivros(livrosJaLidos);
-let livrosNaoLidos = livros.filter( livro => livro.alreadyRead === false );
-//mostrarLivros(livrosNaoLidos);
+
+//Definição de eventos 
+search.addEventListener('input',(e) => serchTitleBooks(e.target.value), false);//pesquisa por titulo
+
+
+
+function serchTitleBooks (text) { // listener para atualizar view da pesquisa
+    livrosPesquisa = livros.filter( l => l.title.search(text) > -1);
+    mostrarLivros(livrosPesquisa);
+}
 
 
 
 function mostrarLivros(arrayLivros){
-    arrayLivros.map( livro => {
+    grid.innerHTML = ''; // limpar a grid anterior
+
+    arrayLivros.map( livro => { //atualizar a view
         grid.innerHTML += `
             <article>
                 <h1>${livro.title}</h1>

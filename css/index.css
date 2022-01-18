@@ -20,6 +20,21 @@ h1 {
     margin: 15px;
 }
 
+nav {
+    border-top: 2px solid rgb(7, 39, 49);
+    border-bottom: 2px solid rgb(7, 39, 49);
+    background-color: lightblue;
+    padding: 10px 50px;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+nav input {
+    padding: 5px;
+}
+
 
 section.grid {
     display: grid;
@@ -37,3 +52,5 @@ article {
     
     border: 1px solid gray;
 }
+
+

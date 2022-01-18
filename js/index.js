@@ -33,6 +33,7 @@ let livros = [
 ];
 
 let grid = document.querySelector('section.grid');
+
 livros.map( livro => {
     grid.innerHTML += `
         <article>
@@ -46,3 +47,19 @@ livros.map( livro => {
 });
 
 
+function mostrarLivros(arrayLivros){
+
+    grid.innerHTML = '';//limpar anterior
+
+    arrayLivros.map( livro => { //atualizar view
+        grid.innerHTML += `
+            <article>
+                <h1>${livro.title}</h1>
+                <h2>${livro.author}</h2>
+                <img  src='livros/${livro.imageUrl}' />
+                <p> Already Read: ${livro.alreadyRead ? '✅' :'❌' }</p> 
+            </article>
+        `;
+    
+    });
+}

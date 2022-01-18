@@ -34,24 +34,20 @@ let livros = [
 
 let grid = document.querySelector('section.grid');
 
-livros.map( livro => {
-    grid.innerHTML += `
-        <article>
-            <h1>${livro.title}</h1>
-            <h2>${livro.author}</h2>
-            <img  src='livros/${livro.imageUrl}' />
-            <p> Already Read: ${livro.alreadyRead ? '✅' :'❌' }</p> 
-        </article>
-    `;
+// mostar os livros todos
+mostrarLivros(livros);
 
-});
+// mostar os livros ja lidos
+let livrosJaLidos = livros.filter( livro => livro.alreadyRead === true );
+
+//mostrarLivros(livrosJaLidos);
+let livrosNaoLidos = livros.filter( livro => livro.alreadyRead === false );
+//mostrarLivros(livrosNaoLidos);
+
 
 
 function mostrarLivros(arrayLivros){
-
-    grid.innerHTML = '';//limpar anterior
-
-    arrayLivros.map( livro => { //atualizar view
+    arrayLivros.map( livro => {
         grid.innerHTML += `
             <article>
                 <h1>${livro.title}</h1>

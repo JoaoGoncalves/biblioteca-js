@@ -42,30 +42,102 @@ let livros = [
     },
 ];
 
-let grid = document.querySelector('section.grid');
+document.addEventListener('DOMContentLoaded', init , false);
 
-// mostar os livros todos
-mostrarLivros(livros);
+function init(){
 
-// mostar os livros ja lidos
-let livrosJaLidos = livros.filter( livro => livro.alreadyRead === true );
+    // Declaracao das minhas variaveis globais
+    let grid = document.querySelector('section.grid');
+    let filters = document.querySelector('section.filters');
 
-//mostrarLivros(livrosJaLidos);
-let livrosNaoLidos = livros.filter( livro => livro.alreadyRead === false );
-//mostrarLivros(livrosNaoLidos);
+    let filterRead = document.querySelector('#filterRead');
+    let filterNotRead = document.querySelector('#filterNotRead');
+
+    /// Bloco de eventos da applicação
+    filters.addEventListener('change', filterEvents, false);
+    grid.addEventListener('click', gridEvents, false);
+
+    ///LOGICA do meu algoritmo
+    mostrarLivros(livros);
+
+
+    /// Bloco de Metodos da aplicação
+    function filterEvents(e){
+        //console.log(filterNotRead);
+
+        if(e.target.id === 'filterRead'){
+            filtrarLivrosLidos(e.target.checked);
+            filterNotRead.checked = false;
+        }
+
+        if(e.target.id === 'filterNotRead'){
+            filtrarLivrosNaoLidos(e.target.checked);
+            filterRead.checked = false;
+        }
+        
+
+    }
+
+    function gridEvents(e){
+
+        //console.log(e.target.dataset.id);
+        if (e.target.className === 'deleteBtn'){
+            let id = e.target.dataset.id;
+            apagarLivro(id);
+        }
+    }
 
 
 
-function mostrarLivros(arrayLivros){
-    arrayLivros.map( livro => {
-        grid.innerHTML += `
-            <article>
-                <h1>${livro.title}</h1>
-                <h2>${livro.author}</h2>
-                <img  src='livros/${livro.imageUrl}' />
-                <p> Already Read: ${livro.alreadyRead ? '✅' :'❌' }</p> 
-            </article>
-        `;
+
+    /// Bloco das funcionalidades da aplicação
+    function apagarLivro(id){
+        //console.log('apagar livro com id: ', id);
+        let novosLivros = livros.filter( livro => livro.id != id );
+
+        livros = novosLivros;
+
+        mostrarLivros(livros);
+    }
+
+    function filtrarLivrosLidos(checked){
+        //console.log(checked);
+        if(checked){
+            let livrosJaLidos = livros.filter( livro => livro.alreadyRead === true );
+            mostrarLivros(livrosJaLidos);
+        } else {
+            mostrarLivros(livros);
+        }
+    }
+
+    function filtrarLivrosNaoLidos(checked){
+        if(checked){
+            let livrosNaoLidos = livros.filter( livro => livro.alreadyRead === false);
+            mostrarLivros(livrosNaoLidos);
+        } else {
+            mostrarLivros(livros);
+        }
+        
+    }
+
+    function mostrarLivros(arrayLivros){
+
+        grid.innerHTML = '';
     
-    });
+        arrayLivros.map( (livro) => {
+            grid.innerHTML += `
+                <article>
+                    <h1>${livro.title}</h1>
+                    <h2>${livro.author}</h2>
+                    <img  src='livros/${livro.imageUrl}' data-imgGr='${livro.imageUrlGr}' />
+                    <p> Already Read: ${livro.alreadyRead ? '✅' :'❌' }</p> 
+                    <section>
+                        <button class='deleteBtn' data-id=${livro.id} >Delete</button>
+                        <button class='editBtn' data-id=${livro.id}>Edit</button>
+                    </section>
+                </article>
+            `;
+        
+        });
+    }
 }

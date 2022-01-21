@@ -20,6 +20,25 @@ h1 {
     margin: 15px;
 }
 
+button {
+    padding: 5px 10px;
+    background-color: darkgreen;
+    color:white;
+    border-radius: 6px;
+}
+
+section.filters{
+
+   background-color: aquamarine;
+   border-top: 1px solid darkolivegreen;
+
+   padding: 20px;
+
+}
+
+section.filters input{
+    margin-left: 15px;
+}
 
 section.grid {
     display: grid;
@@ -27,7 +46,7 @@ section.grid {
     gap: 5px;
 }
 
-article {
+section.grid article {
 
     display: flex;
     flex-direction: column;

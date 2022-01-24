@@ -27,6 +27,23 @@ button {
     border-radius: 6px;
 }
 
+section.addEditBook {
+    background-color: darkgrey;
+}
+
+section.addEditBook form {
+    min-height: 20vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+section.addEditBook input{
+    padding: 5px;
+}
+
 section.filters{
 
    background-color: aquamarine;

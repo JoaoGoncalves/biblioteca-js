@@ -1,47 +1,3 @@
-// Modelo de dados, a ser representado na pagina (INPUTS)
-let livros = [
-    {
-        id: 0,
-        title: 'Angular com Typescript',
-        author: "Yakov Fain",
-        alreadyRead: true,
-        imageUrl: 'angular.jpg',
-        imageUrlGr: 'angularGr.png',
-    },
-    {
-        id: 1,
-        title: 'Blockchain com JS',
-        author: "Someone Else",
-        alreadyRead: false,
-        imageUrl: 'blockchain.jpg',
-        imageUrlGr: 'blockchainGr.png',
-    },
-    {
-        id: 2,
-        title: 'DeepLearning com JS',
-        author: "Someone Else",
-        alreadyRead: true,
-        imageUrl: 'deeplearning.jpg',
-        imageUrlGr: 'deeplearningGr.png',
-    },
-    {
-        id: 3,
-        title: 'Joy of Javascript',
-        author: "Someone Else",
-        alreadyRead: true,
-        imageUrl: 'joj.jpg',
-        imageUrlGr: 'jojGr.png',
-    },
-    {
-        id: 4,
-        title: 'React Hooks',
-        author: "Someone Else",
-        alreadyRead: false,
-        imageUrl: 'reacthooks.jpg',
-        imageUrlGr: 'reacthooksGr.png',
-    },
-];
-
 document.addEventListener('DOMContentLoaded', init , false);
 
 function init(){
@@ -55,6 +11,15 @@ function init(){
 
     let popup = document.querySelector('#popup');
 
+    /// variaveis do formulario
+    let formBook = document.querySelector('section.addEditBook form');
+    let title = document.getElementById('title');
+    let author = document.getElementById('author');
+    let alreadyRead = document.getElementById('alreadyRead');
+    let imageUrl = document.getElementById('imgUrl');
+    let imageUrlGr = document.getElementById('imgUrlGr');
+
+
     /// Bloco de eventos da applicação
     filters.addEventListener('change', filterEvents, false);
     filters.addEventListener('input', filterEvents, false);
@@ -62,11 +27,41 @@ function init(){
     grid.addEventListener('click', gridEvents, false);
     popup.addEventListener('click', fecharPopup, false);
 
+    
+    formBook.addEventListener('submit', criarLivro, false);
+
+
+
+
+
     ///LOGICA do meu algoritmo
     mostrarLivros(livros);
 
 
     /// Bloco de Metodos da aplicação
+
+    function criarLivro(e){
+
+        //console.log(new Date().getTime());
+        let id = new Date().getTime();
+
+        let livro = new Livro(
+            id,
+            title.value,
+            author.value,
+            alreadyRead.checked,
+            imageUrl.value,
+            imageUrlGr.value
+        );
+
+        livros.push(livro);
+        mostrarLivros(livros);
+        //console.log(livro);
+
+        e.preventDefault();
+    }
+
+
     function filterEvents(e){
         //console.log(filterNotRead);
 
@@ -103,8 +98,6 @@ function init(){
             mostrarPopup(imgGrSrc);
         }
     }
-
-
 
 
     /// Bloco das funcionalidades da aplicação

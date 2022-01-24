@@ -14,17 +14,30 @@
         <h1>Filtros / Pesquisas</h1>
 
         <article>
-            <input type="checkbox" id="filterRead">
-            <label for="filterRead">Já Lidos</label>
+           <div>
+                <input type="checkbox" id="filterRead">
+                <label for="filterRead">Já Lidos</label>
+        
     
-            <input type="checkbox" id="filterNotRead">
-            <label for="filterNotRead">Não Lidos</label>
+                <input type="checkbox" id="filterNotRead">
+                <label for="filterNotRead">Não Lidos</label>
+            </div>
+
+            <div class="search" id="search">
+                <label for="searchInput">Pesquisar Titulo</label>
+                <input type="text" id="searchInput" class="searchInput">
+            </div>
+
         </article>
 
     </section>
 
     <section class="grid"> 
     </section>
+
+    <div class="popup" id="popup">
+        <img src="livros/blockchainGr.png" />
+    </div>
 
     <script src="js/index.js"></script>
 </body>

@@ -40,6 +40,16 @@ section.filters input{
     margin-left: 15px;
 }
 
+section.filters article {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+section.filters .searchInput{
+    padding: 5px;
+}
+
 section.grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -55,4 +65,25 @@ section.grid article {
     padding: .7em;
     
     border: 1px solid gray;
+}
+
+
+div.popup{
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.618);
+
+    position: absolute;
+    top:0;
+    left: 0;
+
+    display: none;
+    cursor:pointer;
+}
+
+div.popup.open{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

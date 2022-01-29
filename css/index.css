@@ -104,3 +104,16 @@ div.popup.open{
     justify-content: center;
     align-items: center;
 }
+
+
+.show{
+    display: block;
+}
+
+.hide{
+    display: none;
+}
+
+.atualizar{
+    opacity: .5;
+}

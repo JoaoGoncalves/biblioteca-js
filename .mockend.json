@@ -1,11 +1,15 @@
 {
-   "book":{
-       "id":0,
-       "title":"Angular com Typescript",
-       "author":"Yakov Fain",
-       "alreadyRead":true,
-       "imageUrl":"angular.jpg",
-       "imageUrlGr":"angularGr.png",
-       "description":"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed vitae inventore nostrum nobis! Quia, iure totam quaerat expedita laboriosam quo omnis culpa vero provident! Quis pariatur accusantium nesciunt recusandae praesentium. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed vitae inventore nostrum nobis! Quia, iure totam quaerat expedita laboriosam quo omnis culpa vero provident! Quis pariatur accusantium nesciunt recusandae praesentium."
+    "Books":
+    {
+        "title": { "string": {} },
+       "author": { "string": {} },
+       "alreadyRead":{ "boolean": {} } ,
+       "imageUrl": { "regexp": "https://picsum\\.photos/seed/[0-9]{5}/150/180"},
+       "imageUrlGr":{ "regexp": "https://picsum\\.photos/seed/[0-9]{5}/640/780"},
+       "description":{
+        "text": {
+          "loremParagraphs": { "minLength": 200, "maxLength": 500 }
+        }
+      }
     }
 }

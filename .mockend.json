@@ -1,5 +1,6 @@
 {
    "books": {
+   {
        "id":0,
        "title":"Angular com Typescript",
        "author":"Yakov Fain",
@@ -53,4 +54,5 @@
        "imageUrlGr":"typescriptGr.png",
        "description":"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed vitae inventore nostrum nobis! Quia, iure totam quaerat expedita laboriosam quo omnis culpa vero provident! Quis pariatur accusantium nesciunt recusandae praesentium. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed vitae inventore nostrum nobis! Quia, iure totam quaerat expedita laboriosam quo omnis culpa vero provident! Quis pariatur accusantium nesciunt recusandae praesentium."
     }
+   }
 }

@@ -1,7 +1,7 @@
 {
     "Book":
     {
-       "id": { "int": {} },
+       "id": { "int": {"min": 0} },
        "title": { "string": {} },
        "author": { "string": {} },
        "alreadyRead":{ "boolean": {} } ,

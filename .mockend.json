@@ -1,5 +1,5 @@
 {
-    "Books":
+    "Book":
     {
         "title": { "string": {} },
        "author": { "string": {} },

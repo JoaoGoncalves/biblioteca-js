@@ -1,7 +1,8 @@
 {
     "Book":
     {
-        "title": { "string": {} },
+       "id": "id",
+       "title": { "string": {} },
        "author": { "string": {} },
        "alreadyRead":{ "boolean": {} } ,
        "imageUrl": { "regexp": "https://picsum\\.photos/seed/[0-9]{5}/150/180"},
